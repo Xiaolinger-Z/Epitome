@@ -63,7 +63,7 @@ python3 4_merge_dataset.py
 The pretrained model was obtained from [Trex](https://arxiv.org/abs/2012.08680) in Deceber 2021.
 
 ### Training
-The script for training the model is [`pre_train/pre_train_model/run_pretrain.sh`][pre_train/pre_train_model/run_pretrain.sh], in which you have to set the following parameters:
+The script for training the model is [`pre_train/pre_train_model/run_pretrain.sh`](pre_train/pre_train_model/run_pretrain.sh), in which you have to set the following parameters:
 
 ```bash
 num_train_epochs = 20  # Num of epoch for training 
@@ -109,15 +109,16 @@ python3 2.3_process_function_name.py
 
 In order to speed up the training process, we  binarize the dataset. You have to set the following parameters:
 
-''' bash
+```bash
   datapre = '' # location of the data corpus and test dataset
   inst_vocab_path  = '../pre_train/pre_train_model/modelout/vocab' #assembly instruction vocab path which is pretrain model generate
   label_vocab_path = './modelout/label_vocab'  # function name vocab path
   max_label_num = 10 # function name length
   node_len = 16  # instruction length
   node_num = 256  # the number of node in fined-grained CFG
-'''
+```
 
+To binarize the dataset, run the `generate_dataset.py`
 
 ```bash
 cd training_evalution

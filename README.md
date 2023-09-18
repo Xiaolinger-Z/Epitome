@@ -64,6 +64,7 @@ The pretrained model was obtained from [Trex](https://arxiv.org/abs/2012.08680) 
 
 ### Training
 The script for training the model is [`pre_train/pre_train_model/run_pretrain.sh`][pre_train/pre_train_model/run_pretrain.sh], in which you have to set the following parameters:
+
 ''' bash
 num_train_epochs = 20  # Num of epoch for training 
 train_cfg_dataset  = "ROOT_DIR/feature/single_cfg_train_X64.txt"  # The train path of pairs of control dependency instructions
@@ -131,6 +132,7 @@ The pretrained model was obtained from [Trex](https://arxiv.org/abs/2012.08680) 
 
 
 The script for training the model is [`training_evalution/train.py`][training_evalution/train.py], in which you have to set the following parameters in [`training_evalution/model_config.py`][training_evalution/model_config.py]:
+
 ''' bash
   datapre = '' # location of the data corpus and test dataset
   test_datapre =''  # location of the test dataset

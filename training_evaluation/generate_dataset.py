@@ -490,7 +490,6 @@ parser.add_argument('--min_frequency', type=int, required=False, default=1)
 parser.add_argument('--max_label_num', type=int, default=10, help='function name length')
 parser.add_argument('--node_len', type=int, default=16, required=False, help='function name length')
 parser.add_argument('--node_num', type=int, default=256, required=False, help='function name length')
-parser.add_argument('--feature_num', default=256, type=int, metavar='N', help='select feature num')
 args = parser.parse_args()
 
 if __name__ == '__main__':

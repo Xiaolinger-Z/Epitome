@@ -131,7 +131,7 @@ The pretrained model was obtained from [Trex](https://arxiv.org/abs/2012.08680) 
 ### Training
 
 
-The script for training the model is [`training_evalution/train.py`][training_evalution/train.py], in which you have to set the following parameters in [`training_evalution/model_config.py`][training_evalution/model_config.py]:
+The script for training the model is [`training_evalution/train.py`](training_evalution/train.py), in which you have to set the following parameters in [`training_evalution/model_config.py`](training_evalution/model_config.py):
 
 ```bash
   datapre = '' # location of the data corpus and test dataset
@@ -159,7 +159,9 @@ The script for training the model is [`training_evalution/train.py`][training_ev
   beam = 3 # 'beam size'
   factor = 0.5 # Factor in the ReduceLROnPlateau learning rate scheduler
   patience = 3 #Patience in the ReduceLROnPlateau learning rate scheduler
-'''
+```
+
+To train the model, run the `train.py`
 ```bash
 cd training_evalution
 python3 train.py

@@ -16,7 +16,7 @@ To use Epitome, we need the following tools installed
 - `pre_train/dataset_generation`: it contains the script to generate a dataset for the assembly language model.
 - `pre_train/pre_train_model`: it contains the scripts for training the assembly language model.
 - `dataset_generation`:  it contains the scripts to generate a dataset for multi-task learning.
-- `training_evalation`: it contains the scripts for training Epitome.
+- `training_evaluation`: it contains the scripts for training Epitome.
 
 ## Table of contents
 
@@ -118,14 +118,14 @@ In order to speed up the training process, we  binarize the dataset. You have to
 To binarize the dataset, run the `generate_dataset.py`
 
 ```bash
-cd training_evalution
+cd training_evaluation
 python3 generate_dataset.py
 ```
 
 ### Training
 
 
-The script for training the model is [`training_evalution/train.py`](training_evalution/train.py), in which you have to set the following parameters in [`training_evalution/model_config.py`](training_evalution/model_config.py):
+The script for training the model is [`training_evaluation/train.py`](training_evaluation/train.py), in which you have to set the following parameters in [`training_evaluation/model_config.py`](training_evaluation/model_config.py):
 
 ```bash
   datapre = '../dataset/X64_dataset' # location of the data corpus and test dataset
@@ -156,21 +156,22 @@ The script for training the model is [`training_evalution/train.py`](training_ev
 ```
 
 To train the model, run the `train.py`
+
 ```bash
-cd training_evalution
+cd training_evaluation
 python3 train.py
 ```
 
 ### Trained Model
 The pretrained model was obtained from [pretrained model](https://drive.google.com/file/d/1QsxoRSSVlDDidasTu4GRfNRQNwjJiqcD/view?usp=sharing) and the label vocab was obtained from [vocab](https://drive.google.com/file/d/1fAZaJvUhmiv46ni21aZylUINNE6UPWNx/view?usp=sharing).
-You can put them under the [training_evalution/modelout](training_evalution/modelout) directory.
+You can put them under the [training_evaluation/modelout](training_evalution/modelout) directory.
 
   
 ## Prediction and Evaluation
 
 ### Function Name Prediction
 
-The script for training the model is [`training_evalution/test.py`](training_evalution/test.py), in which you have to set the following parameters in [`training_evalution/model_config.py`](training_evalution/model_config.py):
+The script for training the model is [`training_evaluation/test.py`](training_evaluation/test.py), in which you have to set the following parameters in [`training_evaluation/model_config.py`](training_evaluation/model_config.py):
 
 ```bash
   test_datapre =''  # location of the test dataset
@@ -194,6 +195,6 @@ The script for training the model is [`training_evalution/test.py`](training_eva
   beam = 3 # 'beam size'
 ```
 
-The predicted names are saved in the [`training_evalution/modelout/prediction`](training_evalution/modelout/prediction) directory. Note that, the result of the evaluation is printed.
+The predicted names are saved in the [`training_evaluation/modelout/prediction`](training_evaluation/modelout/prediction) directory. Note that, the result of the evaluation is printed.
 
 

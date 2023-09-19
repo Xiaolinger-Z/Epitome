@@ -25,23 +25,21 @@ To use Epitome, we need the following tools installed
   - [Pre-train Assembly Language Model](#pre-train-assembly-language-model)
     - [Setup](#setup)
     - [Training](#training)
+    - [Trained Model](#trained-model)
   - [Model Training](#model-training)
     - [Setup](#setup)
     - [Training](#training)
+    - [Trained Model](#trained-model)
   - [Prediction and Evaluation](#prediction-and-evaluation)
     - [Function Name Prediction](#function-name-prediction)
     - [Evaluation](#evaluation)
   - [CodeWordNet](#codewordnet)
 
 ## Dataset
-
-We provide `x64` dataset under the [`dataset_generation/dataset_sample`](dataset_generation/dataset_sample).
-
-
+To train the model, please first download the [processed dataset](https://drive.google.com/file/d/1QsxoRSSVlDDidasTu4GRfNRQNwjJiqcD/view?usp=sharing) and put it under the [dataset](dataset) directory.
 
 ## Pre-train Assembly Language Model
 ### Setup
-#### Start From Scratch
 1. We need to modify the `pre_train/dataset_generation/data_gen_config.py` file. Simple modification is listed as following, but it need to follow the directory structure we defined:
 ```
 IDA32_DIR = "installation directory of 32-bit IDA Pro program"
@@ -55,12 +53,8 @@ cd pre_train/dataset_generation/
 python2 data_gen_command.py
 python3 4_merge_dataset.py
 ```
-
    
 ` Note: All steps can be executed in the Linux system.`
-
-#### Loade Trained Model
-The pretrained model was obtained from [Trex](https://arxiv.org/abs/2012.08680) in Deceber 2021.
 
 ### Training
 The script for training the model is [`pre_train/pre_train_model/run_pretrain.sh`](pre_train/pre_train_model/run_pretrain.sh), in which you have to set the following parameters:
@@ -80,16 +74,19 @@ output_dir  = "./modelout/"  # the model save path
 warmup_steps = 10000 # Warmup the learning rate over this many updates
 '''
 
+To train the model, run the `run_pretrain.sh`
 ```bash
 cd pre_train/pre_train_model/
 bash run_pretrain.sh
 ```
 
+### Trained Model
+The pretrained model was obtained from [pretrained model](https://drive.google.com/drive/folders/1R6neL8T2Rknm8T95p3bST9dehreKGc-m?usp=sharing) and the assembly instructions vocab was obtained from [vocab](https://drive.google.com/file/d/1jIETwM2slYPe5Ob3adTTnAVoAAyvk6lK/view?usp=sharing). You can put them under the [pre_train/pre_train_model/modelout](pre_train/pre_train_model/modelout) directory.
+
 ## Model Training
 
 ### Setup
 
-#### Start From Scratch
 1. We need to modify the `dataset_generation/config.py` file. Simple modification is listed as following, but it need to follow the directory structure we defined:
 ```
 IDA32_DIR = "installation directory of 32-bit IDA Pro program"
@@ -125,20 +122,16 @@ cd training_evalution
 python3 generate_dataset.py
 ```
 
-
-#### Loade Trained Model
-The pretrained model was obtained from [Trex](https://arxiv.org/abs/2012.08680) in Deceber 2021.
-
 ### Training
 
 
 The script for training the model is [`training_evalution/train.py`](training_evalution/train.py), in which you have to set the following parameters in [`training_evalution/model_config.py`](training_evalution/model_config.py):
 
 ```bash
-  datapre = '' # location of the data corpus and test dataset
+  datapre = '../dataset/X64_dataset' # location of the data corpus and test dataset
   test_datapre =''  # location of the test dataset
   node_vocab_path  = '../pre_train/pre_train_model/modelout/vocab' #assembly instruction vocab path which is pretrain model generate
-  graph_label_vocab_path = ''  # function name vocab path
+  graph_label_vocab_path = './modelout/label_vocab'  # function name vocab path
   pre_train_model ='../pre_train/pre_train_model/modelout/best_ceckpoint' # pre-train model path
   word_net_path = 'X64_wordnet.json' 
   save_path = './modelout/'
@@ -168,7 +161,39 @@ cd training_evalution
 python3 train.py
 ```
 
+### Trained Model
+The pretrained model was obtained from [pretrained model](https://drive.google.com/file/d/1QsxoRSSVlDDidasTu4GRfNRQNwjJiqcD/view?usp=sharing) and the label vocab was obtained from [vocab](https://drive.google.com/file/d/1fAZaJvUhmiv46ni21aZylUINNE6UPWNx/view?usp=sharing).
+You can put them under the [training_evalution/modelout](training_evalution/modelout) directory.
 
   
+## Prediction and Evaluation
+
+### Function Name Prediction
+
+The script for training the model is [`training_evalution/test.py`](training_evalution/test.py), in which you have to set the following parameters in [`training_evalution/model_config.py`](training_evalution/model_config.py):
+
+```bash
+  test_datapre =''  # location of the test dataset
+  node_vocab_path  = '../pre_train/pre_train_model/modelout/vocab' #assembly instruction vocab path which is pretrain model generate
+  graph_label_vocab_path = './modelout/label_vocab'  # function name vocab path
+  pre_train_model ='../pre_train/pre_train_model/modelout/best_ceckpoint' # pre-train model path
+  word_net_path = 'X64_wordnet.json' 
+  save_path = './modelout/'
+  test_opt = ['O0', 'O1', 'O2', 'O3', 'Os'] # compilation optimizations for tesing 
+  target_len = 10 # function name length
+  node_len = 16  # instruction length
+  node_num = 256  # the number of node in fined-grained CFG
+  num_blocks = 6 # the num block of transformer
+  num_heads = 8 # the num head of transformer
+  batch_size = 64  # Input batch size for training
+  epochs = 30 #  Number of epochs to train
+  emb_dim = 128  # Size of embedding
+  conv_feature_dim = 128 # Size of conv layer in node embedding
+  hidden_dim = 256 # Size of hidden size
+  radius = 2  # Diameter of ego networks
+  beam = 3 # 'beam size'
+```
+
+The predicted names are saved in the [`training_evalution/modelout/prediction`](training_evalution/modelout/prediction) directory. Note that, the result of the evaluation is printed.
 
 

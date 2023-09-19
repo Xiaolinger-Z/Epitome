@@ -62,7 +62,7 @@ The script for training the model is [`pre_train/pre_train_model/run_pretrain.sh
 num_train_epochs = 20  # Num of epoch for training 
 train_cfg_dataset  = "ROOT_DIR/feature/single_cfg_train_X64.txt"  # The train path of pairs of control dependency instructions
 train_dfg_dataset  = "ROOT_DIR/feature/single_dfg_train_X64.txt"  # The train path of pairs of data dependency instructions
-test_cfg_dataset  = "ROOT_DIR/feature/single_cfg_test_X64.txt" " # The valid path of pairs of control dependency instructions
+test_cfg_dataset  = "ROOT_DIR/feature/single_cfg_test_X64.txt"  # The valid path of pairs of control dependency instructions
 test_dfg_dataset = "ROOT_DIR/feature/single_dfg_test_X64.txt"     # The valid path of pairs of data dependency instructions
 vocab_path = "./modelout/vocab"  # the path for save vocab
 per_device_train_batch_size = 256  # train batch size
@@ -74,6 +74,7 @@ warmup_steps = 10000 # Warmup the learning rate over this many updates
 '''
 
 To train the model, run the `run_pretrain.sh`
+
 ```bash
 cd pre_train/pre_train_model/
 bash run_pretrain.sh

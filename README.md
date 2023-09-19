@@ -197,6 +197,6 @@ The predicted names are saved in the [`training_evaluation/modelout/prediction`]
 
 ## LabelRelationshipIdentify
 
-We address the challenges of the noisy nature of natural languages, we propose to generate the distributed representation of function name words and calculate the semantic distance to identify the relationship of labels. We provide the script [`label_relationship_identify/train_models.py`](label_relationship_identify/train_model.py) for label embedding model training.
+We address the challenges of the noisy nature of natural languages, we propose to generate the distributed representation of function name words and calculate the semantic distance to identify the relationship of labels. We provide the script [`label_relationship_identify/train_model.py`](label_relationship_identify/train_model.py) for label embedding model training.
 
 

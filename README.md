@@ -30,9 +30,7 @@ To use Epitome, we need the following tools installed
     - [Setup](#setup)
     - [Training](#training)
     - [Trained Model](#trained-model)
-  - [Prediction and Evaluation](#prediction-and-evaluation)
-    - [Function Name Prediction](#function-name-prediction)
-    - [Evaluation](#evaluation)
+  - [Prediction](#prediction)
   - [CodeWordNet](#codewordnet)
 
 ## Dataset
@@ -167,9 +165,7 @@ The pretrained model was obtained from [pretrained model](https://drive.google.c
 You can put them under the [training_evaluation/modelout](training_evalution/modelout) directory.
 
   
-## Prediction and Evaluation
-
-### Function Name Prediction
+## Prediction
 
 The script for training the model is [`training_evaluation/test.py`](training_evaluation/test.py), in which you have to set the following parameters in [`training_evaluation/model_config.py`](training_evaluation/model_config.py):
 
@@ -196,5 +192,7 @@ The script for training the model is [`training_evaluation/test.py`](training_ev
 ```
 
 The predicted names are saved in the [`training_evaluation/modelout/prediction`](training_evaluation/modelout/prediction) directory. Note that, the result of the evaluation is printed.
+
+
 
 

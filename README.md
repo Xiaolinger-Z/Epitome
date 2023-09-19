@@ -17,6 +17,7 @@ To use Epitome, we need the following tools installed
 - `pre_train/pre_train_model`: it contains the scripts for training the assembly language model.
 - `dataset_generation`:  it contains the scripts to generate a dataset for multi-task learning.
 - `training_evaluation`: it contains the scripts for training Epitome.
+- `label_relationship_identify`: it contains the scripts for function name processing. 
 
 ## Table of contents
 
@@ -31,7 +32,7 @@ To use Epitome, we need the following tools installed
     - [Training](#training)
     - [Trained Model](#trained-model)
   - [Prediction](#prediction)
-  - [CodeWordNet](#codewordnet)
+  - [LabelRelationshipIdentify](#label-relationship-identify)
 
 ## Dataset
 To train the model, please first download the [processed dataset](https://drive.google.com/file/d/1QsxoRSSVlDDidasTu4GRfNRQNwjJiqcD/view?usp=sharing) and put it under the [dataset](dataset) directory.
@@ -194,5 +195,8 @@ The script for training the model is [`training_evaluation/test.py`](training_ev
 The predicted names are saved in the [`training_evaluation/modelout/prediction`](training_evaluation/modelout/prediction) directory. Note that, the result of the evaluation is printed.
 
 
+## LabelRelationshipIdentify
+
+We address the challenges of the noisy nature of natural languages, we propose to generate the distributed representation of function name words and calculate the semantic distance to identify the relationship of labels. We provide the script [`label_relationship_identify/train_models.py`](label_relationship_identify/train_models.py) for label embedding model training.
 
 

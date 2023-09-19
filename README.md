@@ -128,13 +128,10 @@ The script for training the model is [`training_evaluation/train.py`](training_e
 
 ```bash
   datapre = '../dataset/X64_dataset' # location of the data corpus and test dataset
-  test_datapre =''  # location of the test dataset
   node_vocab_path  = '../pre_train/pre_train_model/modelout/vocab' #assembly instruction vocab path which is pretrain model generate
   graph_label_vocab_path = './modelout/label_vocab'  # function name vocab path
   pre_train_model ='../pre_train/pre_train_model/modelout/best_ceckpoint' # pre-train model path
-  word_net_path = 'X64_wordnet.json' 
   save_path = './modelout/'
-  test_opt = ['O0', 'O1', 'O2', 'O3', 'Os'] # compilation optimizations for tesing 
   lr = 1e-4  # Initial learning rate
   min_lr = 1e-6 # Minimum learning rate.
   dropout = 0.1  # Dropout rate (1 - keep probability)
@@ -171,13 +168,13 @@ You can put them under the [training_evaluation/modelout](training_evalution/mod
 The script for training the model is [`training_evaluation/test.py`](training_evaluation/test.py), in which you have to set the following parameters in [`training_evaluation/model_config.py`](training_evaluation/model_config.py):
 
 ```bash
-  test_datapre =''  # location of the test dataset
+  test_datapre ='../dataset/test_X64_dataset'  # location of the test dataset
   node_vocab_path  = '../pre_train/pre_train_model/modelout/vocab' #assembly instruction vocab path which is pretrain model generate
   graph_label_vocab_path = './modelout/label_vocab'  # function name vocab path
   pre_train_model ='../pre_train/pre_train_model/modelout/best_ceckpoint' # pre-train model path
   word_net_path = 'X64_wordnet.json' 
   save_path = './modelout/'
-  test_opt = ['O0', 'O1', 'O2', 'O3', 'Os'] # compilation optimizations for tesing 
+  test_opt = ['O0', 'O1', 'O2', 'O3', 'Os'] # compilation optimizations for testing 
   target_len = 10 # function name length
   node_len = 16  # instruction length
   node_num = 256  # the number of node in fined-grained CFG

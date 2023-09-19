@@ -55,9 +55,6 @@ class Run(object):
         self.model = Model(Config, self.node_vocab, self.graph_label).cuda()
 
         self.checkpoint_best_path = Config.save_path + f'result/model_best_{out_name}_checkpoint.pth.tar'
-        self.checkpoint_latest_path = Config.save_path + f'result/model_latest_{out_name}_checkpoint.pth.tar'
-
-        logging(self.checkpoint_latest_path)
 
 
     def test_step(self, inputs, targets):

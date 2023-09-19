@@ -71,7 +71,7 @@ learning_rate = 5e-5  #learning rate
 max_seq_length  = 32  # the length of pairs of instructions    
 output_dir  = "./modelout/"  # the model save path
 warmup_steps = 10000 # Warmup the learning rate over this many updates
-'''
+```
 
 To train the model, run the `run_pretrain.sh`
 

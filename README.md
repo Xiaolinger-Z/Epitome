@@ -36,6 +36,7 @@ To use Epitome, we need the following tools installed
 
 ## Dataset
 To test the model, please first download the [processed dataset](https://drive.google.com/file/d/1bIDtujLbo2v7hoowGpZNiOv5KkhQnY1H/view?usp=sharing) and put it under the [dataset](dataset) directory.
+Because the training data is too large, it is difficult to upload now and will be made public later.
 
 ## Pre-train Assembly Language Model
 ### Setup

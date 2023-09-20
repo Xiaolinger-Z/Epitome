@@ -35,7 +35,7 @@ To use Epitome, we need the following tools installed
   - [LabelRelationshipIdentify](#label-relationship-identify)
 
 ## Dataset
-To train the model, please first download the [processed dataset](https://drive.google.com/file/d/1QsxoRSSVlDDidasTu4GRfNRQNwjJiqcD/view?usp=sharing) and put it under the [dataset](dataset) directory.
+To test the model, please first download the [processed dataset](https://drive.google.com/file/d/1bIDtujLbo2v7hoowGpZNiOv5KkhQnY1H/view?usp=sharing) and put it under the [dataset](dataset) directory.
 
 ## Pre-train Assembly Language Model
 ### Setup

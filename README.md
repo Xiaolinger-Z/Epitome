@@ -148,7 +148,7 @@ The script for training the model is [`training_evaluation/train.py`](training_e
   conv_feature_dim = 128 # Size of conv layer in node embedding
   hidden_dim = 256 # Size of hidden size
   radius = 2  # Diameter of ego networks
-  beam = 3 # 'beam size'
+  beam = 0 # 'beam size'
   factor = 0.5 # Factor in the ReduceLROnPlateau learning rate scheduler
   patience = 3 #Patience in the ReduceLROnPlateau learning rate scheduler
 ```
@@ -188,7 +188,7 @@ The script for training the model is [`training_evaluation/test.py`](training_ev
   conv_feature_dim = 128 # Size of conv layer in node embedding
   hidden_dim = 256 # Size of hidden size
   radius = 2  # Diameter of ego networks
-  beam = 3 # 'beam size'
+  beam = 0 # 'beam size'
 ```
 
 The predicted names are saved in the [`training_evaluation/modelout/prediction`](training_evaluation/modelout/prediction) directory. Note that, the result of the evaluation is printed.

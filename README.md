@@ -161,7 +161,7 @@ python3 train.py
 ```
 
 ### Trained Model
-The pretrained model was obtained from [pretrained model](https://drive.google.com/file/d/1QsxoRSSVlDDidasTu4GRfNRQNwjJiqcD/view?usp=sharing) and the label vocab was obtained from [vocab](https://drive.google.com/file/d/1fAZaJvUhmiv46ni21aZylUINNE6UPWNx/view?usp=sharing).
+The pretrained model was obtained from [pretrained model](https://drive.google.com/file/d/1fljMs-6x3YLvy0BqHotcY1UbfAMvHfnS/view?usp=sharing) and the label vocab was obtained from [vocab](https://drive.google.com/file/d/1fAZaJvUhmiv46ni21aZylUINNE6UPWNx/view?usp=sharing).
 You can put them under the [training_evaluation/modelout](training_evalution/modelout) directory.
 
   
